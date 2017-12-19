@@ -1,2 +1,3 @@
 # MIS
-MIS project, integrated mobile ionic app with SAP B1
+MIS project
+Missing lib : moment, fullcalendar-3.4.0
