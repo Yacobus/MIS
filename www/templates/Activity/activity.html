@@ -1,0 +1,75 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="back()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()" ng-disabled="statusAct=='Y'"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Activity</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label" >
+            <span class="input-label">Number</span>
+            <input type="text" ng-model="activity.ClgCode" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" >
+            <span class="input-label">Activity</span><br />
+            <select ng-model="activity.Action">
+                <option ng-repeat='action in actAction' value='{{action.value}}' ng-selected='{{action.value == activity.Action}}' ng-disabled="statusAct=='Y'">{{action.text}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Type</span><br />
+            <select ng-model="activity.ContactTypeCode" ng-change="getSubject(activity.ContactTypeCode)" >
+                <option ng-repeat='type in actType' value='{{type.Code}}' ng-selected='{{type.Code == activity.ContactTypeCode}}' ng-disabled="statusAct=='Y'">{{type.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" >
+            <span class="input-label">Subject</span><br />
+            <select ng-model="activity.ContactSubjectCode" >
+                <option ng-repeat='subj in actSubject' value='{{subj.Code}}' ng-selected='{{subj.Code == activity.ContactSubjectCode}}' ng-disabled="statusAct=='Y'">{{subj.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Assigned To</span><br />
+            <select ng-model="activity.AttendUserCode">
+                <option ng-repeat='emp in actEmployee' value='{{emp.EmpID}}' ng-selected='{{emp.EmpID == activity.AttendUserCode}}' disabled>{{emp.FirstName}} {{emp.LastName}}</option>
+            </select>
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Assigned By</span>
+            <input type="text" ng-model="activity.HandledByEmployee">
+        </label>-->
+        <label class="item item-input item-stacked-label" >
+            <span class="input-label">BP Code</span><br />
+            <input id="actBPCode" type="text" class="textDate" ng-model="activity.CardCode" ng-click="openBPModal()" readonly>
+            <i for="actBPCode" class="icon ion-android-search buttonDate" ng-disabled="statusAct=='Y'"></i>
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">BP Code</span>
+            <input type="text" ng-model="activity.CardCode" ng-change="getContact(activity.CardCode)">
+        </label>-->
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">BP Name</span>
+            <input type="text" ng-model="activity.CardName" disabled>
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Bussiness Partner</span><br />
+            <select ng-model="activity.CardCode" ng-change="getContact(activity.CardCode)">
+                <option ng-repeat='bp in actBP' value='{{bp.CardCode}}' ng-selected='{{bp.CardCode == activity.CardCode}}'>{{bp.CardName}}</option>
+            </select>
+        </label>-->
+        <label class="item item-input item-stacked-label" >
+            <span class="input-label">Contact Person</span><br />
+            <select ng-model="activity.ContactCode">
+                <option ng-repeat='contact in actContact' value='{{contact.Code}}' ng-selected='{{contact.Code == activity.ContactCode}}' ng-disabled="statusAct=='Y'">{{contact.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" >
+            <span class="input-label">Telephone No</span>
+            <input type="tel" ng-model="activity.Tel" disabled>
+        </label>
+        <ion-checkbox class="input-check" ng-model="temp.inactive" ng-change="changeInactive()" ng-disabled="statusAct=='Y'">Inactive</ion-checkbox>
+        <ion-checkbox class="input-check" ng-model="temp.status" ng-change="changeStatus()" ng-disabled="statusAct=='Y'">Closed</ion-checkbox>
+        <br />
+    </ion-content>
+</ion-view>

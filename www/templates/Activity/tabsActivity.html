@@ -1,0 +1,31 @@
+﻿<ion-nav-bar class="bar-positive" >
+</ion-nav-bar>
+<ion-tabs scrollable-tab class="tabs-icon-top tabs-positive scad-tabs">
+    <ion-tab title="Master" icon-off="ion-arrow-up-a" icon-on="ion-bookmark" href="#/tabsAct/activity">
+        <ion-nav-view name="masterAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="General" icon-off="ion-arrow-down-a" icon-on="ion-information-circled" href="#/tabsAct/act-general">
+        <ion-nav-view name="generalAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Content" icon-off="ion-arrow-up-c" icon-on="ion-arrow-down-b" href="#/tabsAct/act-content">
+        <ion-nav-view name="contentAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Additional" icon-off="ion-spoon" icon-on="ion-knife" href="#/tabsAct/act-additional">
+        <ion-nav-view name="additionalAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="PraInstalasi" icon-on="ion-pizza" icon-off="ion-code-working" href="#/tabsAct/act-prainstalasi" ng-show="$root.departemen==1">
+        <ion-nav-view name="prainstalasiAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Instalasi" icon-on="ion-fork-repo" icon-off="ion-network" href="#/tabsAct/act-instalasi" ng-show="$root.departemen==1">
+        <ion-nav-view name="instalasiAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Demo" icon-off="ion-icecream" icon-on="ion-coffee" href="#/tabsAct/act-demo" ng-show="$root.departemen==3">
+        <ion-nav-view name="demoAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Training" icon-on="ion-pull-request" icon-off="ion-merge" href="#/tabsAct/act-training" ng-show="$root.departemen==3">
+        <ion-nav-view name="trainingAct"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Attachment" icon-off="ion-social-markdown" icon-on="ion-social-tux" href="#/tabsAct/act-attachment">
+        <ion-nav-view name="attachmentAct"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

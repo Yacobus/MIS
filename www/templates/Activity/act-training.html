@@ -1,0 +1,31 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="back()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()" ng-disabled="statusAct=='Y'"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Activity-Training</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Tanggal Training</span><br />
+            <input type="date" ng-model="tglTraining" id="ujiSesuai" class="hidden" ng-change="getTglTraining(tglTraining)" />
+            <input type="text" ng-model="tglTrainingF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate" ng-disabled="statusAct=='Y'"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Type Training</span>
+            <input type="text" ng-model="activity.U_IDU_TypeTraining" ng-disabled="statusAct=='Y'">
+        </label>
+        <br />
+        <span class="span-textarea">Objective Pelatihan Aplikasi</span>
+        <textarea rows="7" ng-model="activity.U_IDU_ObjPelatihan" ng-disabled="statusAct=='Y'"></textarea>
+        <br />
+        <span class="span-textarea">Subject Yang Dibahas</span>
+        <textarea rows="7" ng-model="activity.U_IDU_SbjYgDibahas" ng-disabled="statusAct=='Y'"></textarea>
+        <br />
+        <span class="span-textarea">Masalah Selama Pelatihan</span>
+        <textarea rows="5" ng-model="activity.U_IDU_MasalahPelatihan" ng-disabled="statusAct=='Y'"></textarea>
+        <br />
+    </ion-content>
+</ion-view>

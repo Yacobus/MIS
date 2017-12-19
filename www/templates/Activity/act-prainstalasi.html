@@ -1,0 +1,60 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="back()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()" ng-disabled="statusAct=='Y'"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Activity-PraInstalasi</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Ruangan</span><br />
+            <select ng-model="activity.U_IDU_Ruangan">
+                <option value="L" ng-disabled="statusAct=='Y'">Layak</option>
+                <option value="T" ng-disabled="statusAct=='Y'">Tidak Layak</option>
+            </select>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Daya Listrik</span><br />
+            <select ng-model="activity.U_IDU_DayaListrik">
+                <option value="M" ng-disabled="statusAct=='Y'">Memadai</option>
+                <option value="T" ng-disabled="statusAct=='Y'">Tidak Memadai</option>
+            </select>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Beban Cost Proses Instalasi</span><br />
+            <select ng-model="activity.U_IDU_BebanCost">
+                <option value="M" ng-disabled="statusAct=='Y'">Murti Indah Sentosa</option>
+                <option value="C" ng-disabled="statusAct=='Y'">Customer</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Proteksi Radiasi</span><br />
+            <select ng-model="activity.U_IDU_ProteksiRadiasi">
+                <option value="S" ng-disabled="statusAct=='Y'">Sudah</option>
+                <option value="B" ng-disabled="statusAct=='Y'">Belum</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status Progress</span><br />
+            <select ng-model="activity.U_IDU_StatusProgress">
+                <option value="1" ng-disabled="statusAct=='Y'">First Stage Progress</option>
+                <option value="2" ng-disabled="statusAct=='Y'">Second Stage Progress</option>
+                <option value="3" ng-disabled="statusAct=='Y'">Third Stage Progress</option>
+            </select>
+        </label>
+        <br />
+        <span class="span-textarea">First Stage Progress</span>
+        <textarea rows="5" ng-model="activity.U_IDU_Progress1" ng-disabled="statusAct=='Y'"></textarea>
+        <br />
+        <span class="span-textarea">Second Stage Progress</span>
+        <textarea rows="5" ng-model="activity.U_IDU_Progress2" ng-disabled="statusAct=='Y'"></textarea>
+        <br />
+        <span class="span-textarea">Third Stage Progress</span>
+        <textarea rows="5" ng-model="activity.U_IDU_Progress3" ng-disabled="statusAct=='Y'"></textarea>
+        <br />
+
+    </ion-content>
+</ion-view>

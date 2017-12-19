@@ -1,0 +1,71 @@
+﻿<ion-view>
+    <ion-nav-title>Complain</ion-nav-title>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.complainList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done" ng-click="save()" ng-hide="isTC"></button>
+    </ion-nav-buttons>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No Complain</span>
+            <input type="text" ng-model="complain.DocNum" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Complain Date</span>
+            <input type="text" app-datetime ng-model="complain.U_IDU_Date" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Cabang</span><br />
+            <select ng-model="complain.U_IDU_Branch">
+                <option ng-repeat='brc in compBranch' value='{{brc.Code}}' ng-selected='{{brc.Code == complain.U_IDU_Branch}}' ng-disabled="statusCmp=='Closed'">{{brc.Remarks}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Request From</span><br />
+            <select ng-model="complain.U_IDU_User">
+                <option ng-repeat='emp in compEmployee' value='{{emp.EmpID}}' ng-selected='{{emp.EmpID == complain.U_IDU_User}}' ng-disabled="statusCmp=='Closed'">{{emp.FirstName}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Manager Sales</span><br />
+            <select ng-model="complain.U_IDU_MngrSales">
+                <option ng-repeat='emp in compEmployee' value='{{emp.EmpID}}' ng-selected='{{emp.EmpID == complain.U_IDU_MngrSales}}' ng-disabled="statusCmp=='Closed'">{{emp.FirstName}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Request To</span><br />
+            <select ng-model="complain.U_IDU_UserComplain">
+                <option ng-repeat='emp in compEmployee' value='{{emp.EmpID}}' ng-selected='{{emp.EmpID == complain.U_IDU_User}}' ng-disabled="statusCmp=='Closed'">{{emp.FirstName}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer Code</span><br />
+            <input id="actBPCode" type="text" class="textDate" ng-model="complain.U_IDU_Customer" ng-click="openBPModal()" readonly>
+            <i for="actBPCode" class="icon ion-android-search buttonDate" ng-disabled="statusCmp=='Closed'"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer Name</span>
+            <input type="text" ng-model="complain.U_IDU_CustomerName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Unit</span><br />
+            <input id="actBPCode" type="text" class="textDate" ng-model="complain.U_IDU_Unit" ng-click="openItemModal()" readonly>
+            <i for="actBPCode" class="icon ion-android-search buttonDate" ng-disabled="statusCmp=='Closed'"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Name</span>
+            <input type="text" ng-model="complain.U_IDU_UnitName" disabled>
+        </label>
+        <span class="input-label">Issue</span>
+        <textarea rows="4" ng-model="complain.U_IDU_Issue" ng-disabled="statusCmp=='Closed'"></textarea>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <select ng-model="complain.U_IDU_Status" required>
+                <option value="O" disabled>Open</option>
+                <option value="C" disabled>Close</option>
+            </select>
+        </label>
+        <br />
+    </ion-content>
+</ion-view>

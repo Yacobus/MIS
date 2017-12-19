@@ -1,0 +1,25 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.complainList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call Information</ion-nav-title>
+    <ion-content class="frmList">
+        <ion-list ng-repeat="sc in serviceCall">
+            <ion-item class="item item-text-wrap">
+                <div>
+                    <h2>{{sc.CallID}}</h2>
+                    <label>{{sc.ItemName}}</label>
+                    <p>{{sc.Date | date:'dd MMM yyyy'}}</p>
+                    <p>{{sc.Subject}}</p>
+                    <label>{{sc.Tech1}}</label><br />
+                    <label>{{sc.Tech2}}</label><br />
+                    <label>{{sc.Tech3}}</label><br />
+                    <p>{{sc.Status}}</p>
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

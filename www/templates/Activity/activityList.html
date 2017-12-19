@@ -1,0 +1,29 @@
+﻿<ion-view>
+    <!--<ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.oppSearch"></button>
+    </ion-nav-buttons>-->
+    <ion-nav-title>Activity List</ion-nav-title>
+    <ion-content class="frmList">
+        <div class="list list-inset div-search">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+        </div>
+        <ion-list ng-repeat="act in activities | orderBy:'Recontact':true | filter:searchFilter">
+            <ion-item ng-click="goDetail(act.ClgCode)" class="item item-text-wrap">
+                <div>
+                    <h2>{{act.ClgCode}}</h2>
+                    <label>{{act.CardName}}</label>
+                    <p>{{act.Recontact | date :  "dd MMM yyyy"}}</p>
+                    <p>{{act.AssignByName}}</p>
+                    
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

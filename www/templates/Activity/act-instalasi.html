@@ -1,0 +1,76 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="back()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()" ng-disabled="statusAct=='Y'"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Activity-Instalasi</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Radiasi</span><br />
+            <select ng-model="activity.U_IDU_ItemRadiasi">
+                <option value="Y" ng-disabled="statusAct=='Y'">Yes</option>
+                <option value="N" ng-disabled="statusAct=='Y'">No</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Uji Fungsi-Uji Coba</span><br />
+            <select ng-model="activity.U_IDU_UjiFungsi">
+                <option value="S" ng-disabled="statusAct=='Y'">Sudah</option>
+                <option value="B" ng-disabled="statusAct=='Y'">Belum</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Tanggal Uji Fungsi</span><br />
+            <input type="date" ng-model="tglUjiFungsi" id="ujiSesuai" class="hidden" ng-change="getTglUjiFungsi(tglUjiFungsi)" />
+            <input type="text" ng-model="tglUjiFungsiF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate" ng-disabled="statusAct=='Y'"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Uji Kesesuaian</span><br />
+            <select ng-model="activity.U_IDU_UjiKesesuaian">
+                <option value="S" ng-disabled="statusAct=='Y'">Sudah</option>
+                <option value="B" ng-disabled="statusAct=='Y'">Belum</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Tanggal Uji Kesesuaian</span><br />
+            <input type="date" ng-model="tglUjiSesuai" id="ujiSesuai" class="hidden" ng-change="getTglUjiSesuai(tglUjiSesuai)" />
+            <input type="text" ng-model="tglUjiSesuaiF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate" ng-disabled="statusAct=='Y'"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Uji Paparan Radiasi</span><br />
+            <select ng-model="activity.U_IDU_UjiPaparan">
+                <option value="B" ng-disabled="statusAct=='Y'">Belum</option>
+                <option value="S" ng-disabled="statusAct=='Y'">Selesai</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Tanggal Uji Paparan Radiasi</span><br />
+            <input type="date" ng-model="tglUjiRadiasi" id="ujiSesuai" class="hidden" ng-change="getTglUjiRadiasi(tglUjiRadiasi)" />
+            <input type="text" ng-model="tglUjiRadiasiF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate" ng-disabled="statusAct=='Y'"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Training How To Operate</span><br />
+            <select ng-model="activity.U_IDU_Training">
+                <option value="B" ng-disabled="statusAct=='Y'">Belum</option>
+                <option value="S" ng-disabled="statusAct=='Y'">Selesai</option>
+            </select>
+        </label>
+        <br />
+        <span class="span-textarea">Other Information</span>
+        <textarea rows="5" ng-model="activity.U_IDU_OtherInformation" ng-disabled="statusAct=='Y'"></textarea>
+
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Sertificate Instalasi</span><br />
+            <select ng-model="activity.U_IDU_SertificateInstalasi">
+                <option value="B" ng-disabled="statusAct=='Y'">Belum</option>
+                <option value="S" ng-disabled="statusAct=='Y'">Selesai</option>
+            </select>
+        </label>   
+        <br />          
+    </ion-content>
+</ion-view>

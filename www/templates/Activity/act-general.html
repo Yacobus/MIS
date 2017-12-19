@@ -1,0 +1,76 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="back()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()" ng-disabled="statusAct=='Y'"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Activity-General</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <span class="span-textarea">Remark</span>
+        <textarea rows="5" ng-model="activity.Details" ng-disabled="statusAct=='Y'"></textarea>
+        <label class="item item-input item-stacked-label" disabled>
+            <span class="input-label">Start Date</span>
+            <input type="text" app-datetime ng-model="activity.Recontact" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" >
+            <span class="input-label">Start Time</span>
+            <input type="text" app-time ng-model="activity.BeginTime" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" ng-hide="activity.Action=='E'">
+            <span class="input-label">End Date</span>
+            <input type="text" app-datetime ng-model="activity.EndDate" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" disabled ng-hide="activity.Action=='E'">
+            <span class="input-label">End Time</span>
+            <input type="text" app-time ng-model="activity.EndTime" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" ng-hide="activity.Action=='E'">
+            <span class="input-label">Duration</span>
+            <input type="text" ng-model="activity.Duration" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Priority</span><br />
+            <select ng-model="activity.Priority">
+                <option ng-repeat='prt in actPriority' value='{{prt.value}}' ng-selected='{{prt.value == activity.Priority}}' ng-disabled="statusAct=='Y'">{{prt.display}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" ng-hide="activity.Action=='E'">
+            <span class="input-label">Meeting Location</span><br />
+            <select ng-model="activity.Address.LocationCode">
+                <option ng-repeat='loc in actLocation' value='{{loc.Code}}' ng-selected='{{loc.Code == activity.Address.LocationCode}}' ng-disabled="statusAct=='Y'">{{loc.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="activity.Action=='M'">
+            <span class="input-label">Street</span>
+            <input type="text" ng-model="activity.Address.Street" ng-disabled="statusAct=='Y'">
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="activity.Action=='M'">
+            <span class="input-label">City</span>
+            <input type="text" ng-model="activity.Address.City" ng-disabled="statusAct=='Y'">
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="activity.Action=='M'">
+            <span class="input-label">Room</span>
+            <input type="text" ng-model="activity.Address.Room" ng-disabled="statusAct=='Y'">
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="activity.Action=='M'">
+            <span class="input-label">State</span><br />
+            <select ng-model="activity.Address.StateCode">
+                <option ng-repeat='st in actState' value='{{st.Code}}' ng-selected='{{st.Code == activity.Address.StateCode}}' ng-disabled="statusAct=='Y'">{{st.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="activity.Action=='M'">
+            <span class="input-label">Country</span><br />
+            <select ng-model="activity.Address.CountryCode">
+                <option ng-repeat='ct in actCountry' value='{{ct.Code}}' ng-selected='{{ct.Code == activity.Address.CountryCode}}' ng-disabled="statusAct=='Y'">{{ct.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="activity.Action=='T'">
+            <span class="input-label">Task Status</span><br />
+            <select ng-model="activity.TaskStatusCode">
+                <option ng-repeat='ts in actTaskStatus' value='{{ts.value}}' ng-selected='{{ts.value == activity.TaskStatusCode}}' ng-disabled="statusAct=='Y'">{{ts.display}}</option>
+            </select>
+        </label>
+        <br />
+    </ion-content>
+</ion-view>
