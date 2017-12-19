@@ -1,0 +1,78 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.quotationList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Quotation-Master</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No.</span>
+            <input type="text" ng-model="quotation.DocEntry" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <select ng-model="quotation.Status">
+                <option value="O" disabled>Open</option>
+                <option value="C" disabled>Close</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Posting Date</span>
+            <input app-datetime type="text" ng-model="quotation.DocDate" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Valid Until</span>
+            <input app-datetime type="text" ng-model="quotation.ValidUntil" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Document Date</span>
+            <input type="text" ng-model="quotation.TaxDate" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer</span>
+            <input type="text" ng-model="quotation.CardCode" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Name</span>
+            <input type="text" ng-model="quotation.CardName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Contact Person</span>
+            <input type="text" ng-model="quotation.ContactName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer Ref. No.</span>
+            <input type="text" ng-model="quotation.NumAtCard" disabled>
+        </label>        
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Sales Employee</span>
+            <input type="text" ng-model="quotation.SlpName" disabled>
+        </label>
+        <span class="input-label">Remark</span>
+        <textarea rows="4" ng-model="quotation.Comments" disabled></textarea>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Total Before Discount</span>
+            <input type="text" ng-model="quotation.TotalBefDisc" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Discount</span>
+            <input type="text" ng-model="quotation.Discount" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Freight</span>
+            <input type="text" ng-model="quotation.Freight" disabled>
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Rounding</span>
+            <input type="text" ng-model="quotation.Rounding" disabled>
+        </label>-->
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Tax</span>
+            <input type="text" ng-model="quotation.Tax" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Total</span>
+            <input type="text" ng-model="quotation.Total" disabled>
+        </label>
+        <br />
+    </ion-content>
+</ion-view>

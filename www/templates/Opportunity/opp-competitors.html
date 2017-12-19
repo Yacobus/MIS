@@ -1,0 +1,49 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Opportunity-Competitors</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChangedCompts($index)">
+            <ion-slide ng-repeat="compt in compts">
+                <div>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Name</span>
+                        <input type="text" ng-model="compt.CompetName" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Threat Level</span><br />
+                        <select ng-model="compt.ThreatLevl">
+                            <option value="1" disabled>Low</option>
+                            <option value="2" disabled>Medium</option>
+                            <option value="3" disabled>High</option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Remark</span>
+                        <input type="text" ng-model="compt.Memo" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Harga</span>
+                        <input type="text" ng-model="compt.U_IDU_Harga" disabled>
+                    </label>
+                    <ion-checkbox class="input-check" ng-checked="compt.Won=='Y'" disable>Won</ion-checkbox>                   
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <div class="update-button">
+        <img src="img/btn_edit.png" ng-click="openComp('update',dataCompts.slideIndex)" ng-hide="temp.disable"/>
+    </div>
+    <div class="add-button">
+        <img src="img/btn_add.png" ng-click="openComp('new',0)" ng-hide="temp.disable"/>
+    </div>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">
+           {{dataCompts.slideIndex+1}}/{{dataCompts.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>

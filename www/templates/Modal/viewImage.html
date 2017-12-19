@@ -1,0 +1,22 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">{{imageName}}</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-close"
+                    ng-click="closeViewImageModal()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="frmInput">
+        <ion-scroll id="attImage"
+                    zooming="true"
+                    direction="xy"
+                    delegate-handle="zoom-pane"
+                    class="zoom-pane"
+                    min-zoom="1"
+                    max-zoom="15"
+                    overflow-scroll="false">
+            <img ng-src="{{attPath}}" >
+        </ion-scroll>
+        
+    </ion-content>
+</ion-modal-view>

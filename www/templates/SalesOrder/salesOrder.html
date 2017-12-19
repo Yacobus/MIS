@@ -1,0 +1,93 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.salesOrderList"></button>
+    </ion-nav-buttons>
+    <!--<ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done" ng-click="save()"></button>
+    </ion-nav-buttons>-->
+    <ion-nav-title>{{soTitle}}-Master</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No SQ</span>
+            <input type="text" ng-model="so.U_IDU_SQ" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No.</span>
+            <input type="text" ng-model="so.DocNum" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <select ng-model="so.Status">
+                <option value="O" disabled>Open</option>
+                <option value="C" disabled>Close</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Posting Date</span>
+            <input app-datetime type="text" ng-model="so.DocDate">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Delivery Date</span>
+            <input app-datetime type="text" ng-model="so.ValidUntil">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Document Date</span>
+            <input app-datetime type="text" ng-model="so.TaxDate">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer</span>
+            <input type="text" ng-model="so.CardCode" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Name</span>
+            <input type="text" ng-model="so.CardName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Contact Person</span>
+            <input type="text" ng-model="so.ContactName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer Ref. No.</span>
+            <input type="text" ng-model="so.NumAtCard" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Sales Employee</span>
+            <input type="text" ng-model="so.SlpName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Sales Employee 2</span>
+            <input type="text" ng-model="so.Sales2" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Sales Employee 3</span>
+            <input type="text" ng-model="so.Sales3" disabled>
+        </label>
+        <span class="input-label">Remark</span>
+        <textarea rows="4" ng-model="so.Comments" disabled></textarea>
+        <label class="item item-input item-stacked-label" ng-hide="isRab">
+            <span class="input-label">Total Before Discount</span>
+            <input type="text" ng-model="so.TotalBefDisc" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" ng-hide="isRab">
+            <span class="input-label">Discount</span>
+            <input type="text" ng-model="so.Discount" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" ng-hide="isRab">
+            <span class="input-label">Freight</span>
+            <input type="text" ng-model="so.Freight" disabled>
+        </label>
+        <!--<label class="item item-input item-stacked-label" ng-hide="isRab">
+            <span class="input-label">Rounding</span>
+            <input type="text" ng-model="so.Rounding">
+        </label>-->
+        <label class="item item-input item-stacked-label" ng-hide="isRab">
+            <span class="input-label">Tax</span>
+            <input type="text" ng-model="so.Tax" disabled>
+        </label>
+        <label class="item item-input item-stacked-label" ng-hide="isRab">
+            <span class="input-label">Total</span>
+            <input type="text" ng-model="so.Total" disabled>
+        </label>
+        <br />
+    </ion-content>
+</ion-view>

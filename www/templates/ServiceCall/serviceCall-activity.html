@@ -1,0 +1,51 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-Activity</ion-nav-title>
+    <ion-content class="frmInput detail has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChangedActivity($index)">
+            <ion-slide ng-repeat="act in activity">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Date</span>
+                    <input type="text" app-datetime ng-model="act.CntctDate" disabled>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Time</span>
+                    <input type="text" app-time ng-model="act.CntctTime" disabled>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Handled By</span>
+                    <input type="text" ng-model="act.HandledByName" disabled>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Activity Date</span>
+                    <input type="text" app-datetime ng-model="act.CntctDate" disabled>
+                </label>
+                <!--<label class="item item-input item-stacked-label">
+                    <span class="input-label">Recurence</span>
+                    <input type="text" ng-model="act.RecurrencePattern">
+                </label>-->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Content</span>
+                    <input type="text" ng-model="act.Notes" disabled>
+                </label>
+                <br />
+                <a ng-click="goToActivity(act.ClgCode)">Detail ></a>
+                <br /> 
+                <br />
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <div class="add-button" ng-hide="statusSC==-1">
+        <img src="img/btn_add.png" ng-click="addActivity()"/>
+    </div>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">
+            {{dataActivity.slideIndex+1}}/{{dataActivity.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>

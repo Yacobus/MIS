@@ -1,0 +1,95 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Opportunity-Stages</ion-nav-title>
+    <ion-content class="frmInput detail has-tabs-top">
+
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChangedStages($index)">
+            <ion-slide ng-repeat="stage in opp.Stages" >
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Start Date</span>
+                        <input app-datetime type="text" ng-model="stage.OpenDate" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Closing Date</span>
+                        <input app-datetime type="text" ng-model="stage.CloseDate" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Sales Employee</span>
+                        <input type="text" ng-model="stage.SlpName" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Stage</span>
+                        <input type="text" ng-model="stage.Step_IdName" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Percent</span>
+                        <input type="text" ng-model="stage.ClosePrcnt" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Potential Amount</span>
+                        <input type="text" ng-model="stage.MaxSumLoc" disabled>
+                    </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Weighted Amount</span>
+                    <input type="text" ng-model="stage.WtSumLoc" disabled>
+                </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Document Type</span>
+                        <input type="text" ng-model="stage.ObjTypeName" disabled>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Doc No</span>
+                        <input type="text" ng-model="stage.DocNumber" disabled>
+                    </label>
+                    <br />
+                
+                <ion-list>
+                        <ion-item class="item-positive accord"
+                                  ng-click="toggleGroup('act')"
+                                  ng-class="{active: isGroupShown('act')}">
+                            <i class="icon" ng-class="isGroupShown('act') ? 'ion-chevron-up' : 'ion-chevron-down'">&nbsp;&nbsp;Activities</i>
+                            &nbsp;&nbsp;&nbsp;
+                            <hr ng-show="dataStages.slideIndex+1==dataStages.totalSlide"/>
+                            &nbsp;&nbsp;&nbsp;
+                            <i class="icon ion-plus" ng-click="addActivity()" ng-show="dataStages.slideIndex+1==dataStages.totalSlide && !temp.disable">&nbsp;&nbsp;New Activity</i>
+                        </ion-item>
+                        <ion-item class="item-accordion item item-text-wrap"
+                                  ng-repeat="act in stage.Activities"
+                                  ng-show="isGroupShown('act')"
+                                  ng-click="goToActivity(act.ClgCode)">
+                            <div>
+                                <h2>{{act.ClgCode}}</h2>
+                                <label>{{act.HandledByName}}</label>
+                                <p>{{act.CntctDate | date :  "dd MMM yyyy"}}</p>
+                                <p>{{act.Notes}}</p>
+
+                            </div>
+                            <br />
+                            <div>
+                                <hr />
+                            </div>
+                        </ion-item>                  
+                </ion-list>
+                    <!--<a ng-click="goToActivity($index)">Activities ></a>      
+                <br />-->            
+                <br />
+            </ion-slide>
+        </ion-slide-box>
+
+    </ion-content>
+    <div class="update-button">
+        <img src="img/btn_edit.png" ng-click="openStage('update')" ng-show="dataStages.slideIndex+1==dataStages.totalSlide && !temp.disable"/>
+    </div>
+    <div class="add-button">
+        <img src="img/btn_add.png" ng-click="openStage('new')" ng-hide="temp.disable"/>
+    </div>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">{{dataStages.slideIndex+1}}/{{dataStages.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>

@@ -1,0 +1,81 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.ECList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Equipment Card-Master</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <select ng-model="ec.Status" required>
+                <option value="A">Active</option>
+                <option value="R">Returned</option>
+                <option value="T">Terminated</option>
+                <option value="L">Loaned</option>
+                <option value="I">In Repair Lab</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Mfr. Serial No</span>
+            <input type="text" ng-model="ec.ManufSN">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Serial Number</span>
+            <input type="text" ng-model="ec.InternalSN">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Number</span><br />
+            <input id="actItemCode" type="text" class="textDate" ng-model="ec.ItemCode" ng-click="openItemModal()">
+            <i for="actItemCode" class="icon ion-android-search buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Description</span>
+            <input type="text" ng-model="ec.ItemName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Partner Code</span><br />
+            <input id="actBPCode" type="text" class="textDate" ng-model="ec.Customer" ng-click="openBPModal()" readonly>
+            <i for="actBPCode" class="icon ion-android-search buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Partner Name</span>
+            <input type="text" ng-model="ec.CustomerName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Territory</span>
+            <input type="text" ng-model="ec.TerritoryName">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Contact Person</span><br />
+            <select ng-model="ec.ContactCode">
+                <option ng-repeat='contact in ecContact' value='{{contact.Code}}' ng-selected='{{contact.Code == ec.ContactCode}}'>{{contact.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Telephone No</span>
+            <input type="tel" ng-model="ec.TeleponNo">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Previous SN</span>
+            <input type="text" ng-model="ec.PreviousSN">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">New SN</span>
+            <input type="text" ng-model="ec.NewSN">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician</span><br />
+            <select ng-model="ec.TechnicianCode">
+                <option ng-repeat='emp in ecEmployee' ng-selected='{{emp.EmpID == ec.TechnicianCode}}' value='{{emp.EmpID}}'>{{emp.FirstName}} {{emp.LastName}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Invoice</span>
+            <input type="text" ng-model="ec.InvoiceNumber">
+        </label>
+        <br />
+    </ion-content>
+
+</ion-view>

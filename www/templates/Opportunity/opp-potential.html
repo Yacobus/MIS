@@ -1,0 +1,66 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Opportunity-Potential</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Predicted Closing In</span>
+            <input type="text" ng-model="opp.totalDate" disabled>
+            <!--<input type="number" ng-model="opp.Potential.Number">
+            <select ng-model="opp.Potential.DifType">
+                <option value="M">Months</option>
+                <option value="W">Weeks</option>
+                <option value="D">Days</option>
+            </select>-->
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Predicted Closing Date</span><br />
+            <input type="date" ng-model="predDate" id="ujiSesuai" class="hidden" ng-change="getPredDate(predDate)" />
+            <input type="text" ng-model="predDateF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate" ng-disabled="temp.disable"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Potential Amount</span>
+            <input type="number" ng-model="opp.Potential.MaxSumLoc" ng-change="countWtSumLoc()" ng-disabled="temp.disable">
+        </label>
+
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Weighted Amount</span>
+            <input type="text" ng-model="opp.WtSumLoc">
+        </label>-->
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Level Of Interest</span><br />
+            <select ng-model="opp.Potential.IntRate">
+                <option ng-disabled="temp.disable" value="1">Netral</option>
+                <option ng-disabled="temp.disable" value="2">Interested</option>
+                <option ng-disabled="temp.disable" value="3">Not Interested</option>
+            </select>
+        </label>
+        <!--<label class="item item-input item-stacked-label no-border">
+            <span class="input-label">Interest Range</span>
+        </label>
+        <div align="center">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th>Primary</th>
+                </tr>
+                <tr ng-repeat="intr in interest">
+                    <td>{{$index+1}}</td>
+                    <td>
+                        <select ng-model="intr.IntId">
+                            <option ng-repeat='inter in oppInterest' value='{{inter.SequenceNo}}' ng-selected='{{inter.SequenceNo == intr.IntId}}' ng-disabled="statusOpp=='Closed'">{{inter.Description}}</option>
+                        </select>
+                    </td>
+                    <td><ion-checkbox class="no-border" ng-model="intr.Primary"></ion-checkbox></td>
+                </tr>
+            </table>
+        </div>-->
+        <br />
+    </ion-content>
+</ion-view>

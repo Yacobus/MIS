@@ -1,0 +1,48 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-arrow-down-c" ng-click="newEC()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Search Equipment Card</ion-nav-title>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer Code</span><br />
+            <input id="actBPCode" type="text" class="textDate" ng-model="ec.cardCode" ng-click="openBPModal()" readonly>
+            <i for="actBPCode" class="icon ion-android-search buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Customer Name</span>
+            <input type="text" ng-model="ec.cardName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Code</span><br />
+            <input id="actItemCode" type="text" class="textDate" ng-model="ec.itemCode" ng-click="openItemModal()">
+            <i for="actItemCode" class="icon ion-android-search buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Name</span>
+            <input type="text" ng-model="ec.itemName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician</span><br />
+            <select ng-model="ec.empID">
+                <option ng-repeat='emp in ecEmployee' value='{{emp.EmpID}}' ng-selected="{{emp.EmpID==ec.empID}}">{{emp.FirstName}} {{emp.LastName}}</option>
+            </select>
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Date</span><br />
+            <input type="date" ng-model="ecDate" id="ecDate" class="hidden" ng-change="getECDate(ecDate)" />
+            <input type="text" ng-model="ecDateF" class="textDate" readonly>
+            <i for="ecDate" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Name</span>
+            <input type="text" ng-model="ec.itemName">
+        </label>-->
+        <div class="button-container">
+            <button class="button custom-button" ng-click="load()">Load</button>
+        </div>
+    </ion-content>
+</ion-view>

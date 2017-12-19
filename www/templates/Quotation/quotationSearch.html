@@ -1,0 +1,29 @@
+﻿<ion-view hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Search Quotation</ion-nav-title>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <input type="radio" name="statusQuo" id="r1Quo" value="O" ng-model="quo.status"><label for="r1Quo">Open</label>
+            <input type="radio" name="statusQuo" id="r2Quo" value="C" ng-model="quo.status"><label for="r2Quo">Close</label>
+            <input type="radio" name="statusQuo" id="r3Quo" value="L" ng-model="quo.status"><label for="r3Quo">All</label>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="quo.status=='C' || quo.status=='L'">
+            <span class="input-label">From</span><br />
+            <input type="date" ng-model="start" id="startQuo" class="hidden" ng-change="getStart(start)" />
+            <input type="text" ng-model="startDate" class="textDate" readonly>
+            <i for="startQuo" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="quo.status=='C' || quo.status=='L'">
+            <span class="input-label">To</span><br />
+            <input id="endQuo" type="date" ng-model="end" class="hidden" ng-change="getEnd(end)" />
+            <input type="text" ng-model="endDate" class="textDate" readonly>
+            <i for="endQuo" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <div class="button-container">
+            <button class="button custom-button" ng-click="load()">Load</button>
+        </div>
+    </ion-content>
+</ion-view>

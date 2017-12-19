@@ -1,0 +1,42 @@
+﻿<ion-view ng-init="init()">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-ios-arrow-back" ng-click="back()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-android-done" ng-click="save()" ng-hide="solMode=='view'"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-title>Solution</ion-nav-title>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No</span>
+            <input type="text" ng-model="solution.SolutionCode">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Priority</span><br />
+            <select ng-model="solution.ServiceCallSolutionStatus">
+                <option ng-repeat='stat in solStatus' value='{{stat.Code}}' ng-selected='{{stat.Code == solution.ServiceCallSolutionStatus}}'>{{stat.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Item Unit</span><br />
+            <input id="actItemCode" type="text" class="textDate" ng-model="solution.ItemCode" ng-click="openItemModal()">
+            <i for="actItemCode" class="icon ion-android-search buttonDate"></i>
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Item Name</span>
+            <input type="text" ng-model="request.DocEntry">
+        </label>-->
+        <span class="input-label">Solution</span>
+        <textarea rows="6" ng-model="solution.Solution"></textarea>
+        <span class="input-label">Symptom</span>
+        <textarea rows="6" ng-model="solution.Symptom"></textarea>
+        <span class="input-label">Cause</span>
+        <textarea rows="6" ng-model="solution.Cause"></textarea>
+        <span class="input-label">Remarks</span>
+        <textarea rows="6" ng-model="solution.Description"></textarea>
+        <br />
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,125 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.quotationList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Quotation-Detail</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Type Sales</span><br />
+            <select ng-model="quotation.U_IDU_TypeSales">
+                <option value="P" disabled>Pemerintah</option>
+                <option value="S" disabled>Swasta</option>
+                <option value="E" disabled>E-Katalog</option>
+                <option value="V" disabled>Private</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga</span><br />
+            <select ng-model="quotation.U_IDU_Hrg">
+                <option value="1" disabled>Pranko Jakarta dan dipasang sampai bekerja dengan baik</option>
+                <option value="2" disabled>Ditempat dan dipasang sampaai bekerja dengan baik</option>
+                <option value="3" disabled>Gudang dan dipasang sampai bekerja dengan baik</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No SQ</span>
+            <input type="text" ng-model="quotation.U_IDU_SQ" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Keterangan</span><br />
+            <select ng-model="quotation.U_IDU_Ket">
+                <option value="1" disabled>Garansi 1 tahun After Sales Service Terjamin</option>
+            </select>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Delivery</span>
+            <input type="text" ng-model="quotation.U_IDU_Delivery" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Pembayaran</span>
+            <input type="text" ng-model="quotation.U_IDU_Pembayaran" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Penawaran Harga</span><br />
+            <select ng-model="quotation.U_IDU_Penawaran">
+                <option value="1" disabled>Harga sudah termasuk PPN 10%</option>
+                <option value="2" disabled>Harga belum termasuk PPN 10%</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Penawaran Berlaku</span><br />
+            <select ng-model="quotation.U_IDU_Penawaran2">
+                <option value="1" disabled>Harga Berlaku Selama 30 Hari Kalender</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga Biaya Pengiriman</span><br />
+            <select ng-model="quotation.U_IDU_Hrg2">
+                <option value="1" disabled>Harga belum termasuk pengiriman</option>
+                <option value="2" disabled>Harga sudah termasuk pengiriman</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga Pra Instalasi</span><br />
+            <select ng-model="quotation.U_IDU_Hrg3">
+                <option value="1" disabled>Harga belum termasuk Pra Instalasi</option>
+                <option value="2" disabled>Harga sudah termasuk Pra Instalasi</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga Instalasi</span><br />
+            <select ng-model="quotation.U_IDU_Hrg4">
+                <option value="1" disabled>Harga belum termasuk Instalasi</option>
+                <option value="2" disabled>Harga sudah termasuk Instalasi</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga Asuransi</span><br />
+            <select ng-model="quotation.U_IDU_Hrg5">
+                <option value="1" disabled>Harga belum termasuk Asuransi</option>
+                <option value="2" disabled>Harga sudah termasuk Asuransi</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga Biaya Transportasi dan Teknisi</span><br />
+            <select ng-model="quotation.U_IDU_Hrg6">
+                <option value="1" disabled>Harga belum termasuk Biaya Transportasi dan Akomodasi Teknisi</option>
+                <option value="2" disabled>Harga sudah termasuk Biaya Transportasi dan Akomodasi Teknisi</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Pelaksana</span>
+            <input type="text" ng-model="quotation.U_IDU_Pls" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Departement Head</span>
+            <input type="text" ng-model="quotation.U_IDU_DeptH" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Rekanan</span>
+            <input type="text" ng-model="quotation.U_IDU_Rekanan" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">First BU</span>
+            <input type="text" ng-model="quotation.U_IDU_1stBU" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Second BU</span>
+            <input type="text" ng-model="quotation.U_IDU_2ndBU" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Third BU</span>
+            <input type="text" ng-model="quotation.U_IDU_3rdBU" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Cabang</span>
+            <input type="text" ng-model="quotation.U_IDU_3rdBU" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga Optional</span>
+            <input type="text" ng-model="quotation.U_IDU_HrgOptional" disabled>
+        </label>
+        <br />
+    </ion-content>
+</ion-view>

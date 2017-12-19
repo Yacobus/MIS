@@ -1,0 +1,73 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-Solution</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChangedSolution($index)">
+            <ion-slide ng-repeat="sol in solution">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">ID</span>
+                    <input type="text" ng-model="sol.SltCode">
+                </label>
+                <!--<label class="item item-input item-stacked-label">
+                    <span class="input-label">Item</span>
+                    <input type="text" ng-model="sol.ItemName">
+                </label>-->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Solution</span>
+                    <input type="text" ng-model="sol.Subject">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Create On</span>
+                    <input type="text" app-datetime ng-model="sol.DateCreate">
+                </label>
+                <!--<label class="item item-input item-stacked-label">
+                    <span class="input-label">Symptom</span>
+                    <input type="text"  ng-model="sc.Symptom">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Status</span>
+                    <input type="text" ng-model="sc.StatusNum">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">No</span>
+                    <input type="text" ng-model="sc.ProblemSubType">
+                </label>-->
+                <!--<label class="item item-input item-stacked-label">
+                    <span class="input-label">Owner</span>
+                    <input type="text" ng-model="sc.Owner">
+                </label>-->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Status</span>
+                    <input type="text" ng-model="sol.StatusName">
+                </label>
+                <!--<label class="item item-input item-stacked-label">
+                    <span class="input-label">Cause</span>
+                    <input type="text" ng-model="sc.Cause">
+                </label>
+                <span class="input-label">Remarks</span>
+                <textarea rows="5" ng-model="sc.Description"></textarea>-->
+                <!--<label class="item item-input item-stacked-label">
+                    <span class="input-label">Handle By</span>
+                    <input type="text" ng-model="sc.Usersign2">
+                </label>-->
+                <br />
+                <a ng-click="goToSolution(sol.SltCode)">Detail ></a>
+                <br />
+                <br />
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>   
+    <div class="add-button" ng-hide="statusSC==-1">
+        <img src="img/btn_add.png" ng-click="addSolution()" />
+    </div>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">
+            {{dataSolution.slideIndex+1}}/{{dataSolution.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>

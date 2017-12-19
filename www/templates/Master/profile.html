@@ -1,0 +1,14 @@
+﻿<ion-view>
+    <ion-nav-title>Profile</ion-nav-title>
+    <ion-content class="profile">
+        <div>
+            <img check-image ng-src="{{imgProfile}}" ng-click="changePhoto()"/>
+        </div>
+        <div>
+                <label>{{firstName}} {{lastName}}</label>
+        </div>
+        <div>
+            <button class="button custom-button" ng-click="changePass()">Change Password</button>
+        </div>
+    </ion-content>
+</ion-view>

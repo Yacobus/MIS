@@ -1,0 +1,54 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-Expenses</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChangedExpenses($index)">
+            <ion-slide ng-repeat="exp in expenses">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Document Type</span>
+                    <input type="text" ng-model="exp.Object">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Document No</span>
+                    <input type="text" ng-model="exp.DocNumber">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Date</span>
+                    <input type="text" app-datetime ng-model="exp.DocDate">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Item No</span>
+                    <input type="text" ng-model="exp.ItemCode">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Item Description</span>
+                    <input type="text" ng-model="exp.Description">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Quantity</span>
+                    <input type="text" ng-model="exp.Quantity">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">From Whse</span>
+                    <input type="text" ng-model="exp.FromWhsName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">To Whse</span>
+                    <input type="text" ng-model="exp.WhsName">
+                </label>
+                <br />
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">
+            {{dataExpenses.slideIndex+1}}/{{dataExpenses.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>
+

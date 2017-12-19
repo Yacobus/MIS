@@ -1,0 +1,85 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Opportunity-Master</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Opportunity Num</span>
+            <input type="text" ng-model="opp.OpprId" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Opportunity Name</span>
+            <input type="text" ng-model="opp.OpportunityName" ng-disabled="temp.disable">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <input type="text" ng-model="opp.StatusName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Start Date</span><br />
+            <input type="date" ng-model="startDate" id="ujiSesuai" class="hidden" ng-change="getStartDate(startDate)" ng-disabled="temp.disable"/>
+            <input type="text" ng-model="startDateF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Closing Date</span>
+            <input type="text" app-datetime ng-model="opp.ClosingDate" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Closing %</span>
+            <input type="text" ng-model="opp.CloPrcnt" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Partner Code</span><br />
+            <input id="oppBPCode" type="text" class="textDate" ng-model="opp.CardCode" ng-click="openBPModal(1)" readonly ng-disabled="temp.disable">
+            <i for="oppBPCode" class="icon ion-android-search buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Partner Name</span>
+            <input type="text" ng-model="opp.CardName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Contact Person</span><br />
+            <select ng-model="opp.CprCode">
+                <option ng-repeat='contact in oppContact' value='{{contact.Code}}' ng-selected='{{contact.Code == opp.CprCode}}' ng-disabled="temp.disable">{{contact.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Partner Territory</span>
+            <input type="text" ng-model="opp.TerritoryName" ng-disabled="temp.disable">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Sales Employee</span>
+            <input type="text" ng-model="opp.SlpName" disabled>
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Sales Employee</span><br />
+            <select ng-model="opp.SlpCode">
+                <option ng-repeat='emp in oppEmployee' value='{{emp.EmpID}}' ng-selected='{{emp.EmpID == opp.SlpCode}}' ng-disabled="statusAct=='Closed'">{{emp.FirstName}}</option>
+            </select>
+        </label>-->
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Unit</span><br />
+            <select ng-model="opp.Potential.U_IDU_BU">
+                <option ng-repeat='bu in businessUnit' value='{{bu.Code}}' ng-selected='{{bu.Code == opp.Potential.U_IDU_BU}}' ng-disabled="temp.disable">{{bu.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Unit 2</span><br />
+            <select ng-model="opp.Potential.U_IDU_BU2">
+                <option ng-repeat='bu in businessUnit' value='{{bu.Code}}' ng-selected='{{bu.Code == opp.Potential.U_IDU_BU2}}' ng-disabled="temp.disable">{{bu.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Business Unit 3</span><br />
+            <select ng-model="opp.Potential.U_IDU_BU3">
+                <option ng-repeat='bu in businessUnit' value='{{bu.Code}}' ng-selected='{{bu.Code == opp.Potential.U_IDU_BU3}}' ng-disabled="temp.disable">{{bu.Name}}</option>
+            </select>
+        </label>
+        <br />
+    </ion-content>
+</ion-view>

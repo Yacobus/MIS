@@ -1,0 +1,70 @@
+﻿<ion-view>
+    <ion-nav-title>Schedule</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-refresh" ng-click="refresh()"></button>
+    </ion-nav-buttons>
+    <ion-content class="schedule">
+        <div class="row">
+            <div class="col"><button ng-click="prev()" class="button button-icon icon ion-chevron-left"></button></div>
+            <div class="col col-75"><label>{{current}}</label></div>
+            <div class="col"><button ng-click="next()" class="button button-icon icon ion-chevron-right"></button></div>
+        </div>
+        <div class="row">
+            <div class="col col-10"></div>
+            <div class="col col-25"><button ng-click="today()">today</button></div>
+            <div class="col col-30"><button ng-click="changeView('basicWeek','myCalendar')">Weekly</button></div>
+            <div class="col col-25"><button ng-click="changeView('month','myCalendar')">Monthly</button></div>
+            <div class="col col-10"></div>
+        </div>
+        <div class="calendar" calendar="myCalendar" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
+
+        <div>
+            <h5>Detail Schedule</h5>
+        </div>
+        <div ng-repeat="event in eventList | orderBy:sortEvent:true">
+            <div class="row">
+                <div class="col col-25">
+                    <div class="row">
+                        <p>{{event.start | date :  "dd MMM hh:mm"}}</p>
+                    </div>
+                    <!--<div class="row">
+                        <p ng-if="notOneDay(event.start,event.end)">-</p>
+                    </div>-->
+                    <div class="row">
+                        <p ng-if="notOneDay(event.start,event.end)">{{event.end | date :  "dd MMM hh:mm"}}</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <h4>{{event.title}}</h4>
+                    </div>
+                    <div class="row">
+                        <p>{{event.notes}}</p>
+                    </div>
+                    <div class="row">
+                        <p> Place : {{event.tempat}}</p>
+                    </div>
+                    <div class="row">
+                        <p> User : {{event.technician}}</p>
+                    </div>
+                </div><br />
+
+
+            </div>
+            <hr />
+        </div>
+    </ion-content>
+
+    <!--<ion-tabs class="tabs-top tabs-positive">
+        <ion-tab icon-off="ion-android-notifications-none" icon-on="ion-android-notifications" href="#/app/notification">
+            <ion-nav-view name="tab-notif">Notification</ion-nav-view>
+        </ion-tab>
+        <ion-tab ng-select="renderCalendar()" icon-off="ion-android-notifications-none" icon-on="ion-android-notifications" href="#/app/schedule">
+            <ion-nav-view name="tab-schedule">Schedule</ion-nav-view>
+        </ion-tab>
+        <ion-tab icon-off="ion-android-notifications-none" icon-on="ion-android-notifications" href="#/app/profile">
+            <ion-nav-view name="tab-profile">Profile</ion-nav-view>
+        </ion-tab>
+
+    </ion-tabs>-->
+</ion-view>

@@ -1,0 +1,55 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">{{title}}</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-android-done"
+                    ng-click="saveStage()"></button>
+        </div>
+        <div class="buttons">
+            <button class="button button-icon ion-close"
+                    ng-click="closeStageModal()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Start Date</span>
+            <input app-datetime type="text" ng-model="stage.OpenDate" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Close Date</span><br />
+            <input type="date" ng-model="stage.CloseDate" id="closeSt" class="hidden" ng-change="closeStageDate(stage.CloseDate)" />
+            <input type="text" ng-model="closeStDateF" class="textDate" readonly>
+            <i for="closeSt" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Sales Employee</span>
+            <input type="text" ng-model="stage.SlpName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Stage</span><br />
+            <select ng-model="stage.Step_Id" ng-change="changeStage(stage.Step_Id)">
+                <option ng-repeat='slSt in salesStage' value='{{slSt.Stageno}}' ng-selected='{{slSt.Stageno == stage.Step_Id}}'>{{slSt.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Percent</span>
+            <input type="text" ng-model="stage.ClosePrcnt" ng-change="countWtSumLoc()">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Potential Amount</span>
+            <input type="text" ng-model="stage.MaxSumLoc" ng-change="countWtSumLoc()">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Weighted Amount</span>
+            <input type="text" ng-model="stage.WtSumLoc" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Document Type</span>
+            <input type="text" ng-model="stage.ObjTypeName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Doc No</span>
+            <input type="text" ng-model="stage.DocNumber" disabled>
+        </label><br />
+    </ion-content>
+</ion-modal-view>

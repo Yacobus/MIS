@@ -1,0 +1,39 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-History</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChanged($index)">
+            <ion-slide ng-repeat="history in histories">
+                <div>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Date Of Update</span>
+                        <input type="text" ng-model="history.dateOfUpdate">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Update Time</span>
+                        <input type="text" ng-model="history.updateTime">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Updated By</span>
+                        <input type="text" ng-model="history.updatedBy">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Description</span>
+                        <input type="text" ng-model="history.description">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Previous Value</span>
+                        <input type="text" ng-model="history.previousValue">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">New Value</span>
+                        <input type="text" ng-model="history.newValue">
+                    </label>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    
+</ion-view>

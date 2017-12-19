@@ -1,0 +1,27 @@
+﻿<ion-view>
+    <!--<ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.oppSearch"></button>
+    </ion-nav-buttons>-->
+    <ion-nav-title>Opportunity List</ion-nav-title>
+    <ion-content class="frmList">
+        <div class="list list-inset div-search">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+        </div>
+        <ion-list ng-repeat="opp in opportunities | orderBy:'StartDate':true | filter:searchFilter">
+            <ion-item ng-click="goDetail(opp.OpprId)" class="item item-text-wrap">
+                <div>
+                    <h2>{{opp.OpprId}}</h2>
+                    <label>{{opp.CardName}}</label>
+                    <p>{{opp.StartDate | date :  "dd MMM yyyy"}}</p> 
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

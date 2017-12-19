@@ -1,0 +1,65 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done" ng-click="updateGeneralSC()" ng-hide="statusSC==-1"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-General</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top padding">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Origin</span>
+            <input type="text" ng-model="sc.OriginName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Problem Type</span>
+            <input type="text" ng-model="sc.ProblemName"  disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Problem Subtype</span>
+            <input type="text" ng-model="sc.ProblemSubName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Call Type</span>
+            <input type="text" ng-model="sc.CallName" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician 1</span><br />
+            <select ng-model="sc.TechnicianCode">
+                <option ng-repeat='item in technician' value='{{item.EmpID}}' ng-selected='{{item.EmpID == sc.TechnicianCode}}' ng-disabled="jabatan==2 || statusSC==-1">{{item.FirstName}} {{item.LastName}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician 2</span><br />
+            <select ng-model="sc.U_IDU_Technician2" >
+                <option ng-repeat='item in technician' value='{{item.EmpID}}' ng-selected='{{item.EmpID == sc.TechnicianCode}}' ng-disabled="jabatan==2 || statusSC==-1">{{item.FirstName}} {{item.LastName}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician 3</span><br />
+            <select  ng-model="sc.U_IDU_Technician3" >
+                <option ng-repeat='item in technician' value='{{item.EmpID}}' ng-selected='{{item.EmpID == sc.TechnicianCode}}' ng-disabled="jabatan==2 || statusSC==-1">{{item.FirstName}} {{item.LastName}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician 1 Score</span>
+            <input type="number" ng-model="sc.U_IDU_TechnicianScore" ng-disabled="jabatan==2 || statusSC==-1">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician 2 Score</span>
+            <input type="number" ng-model="sc.U_IDU_TechnicianScore2" ng-disabled="jabatan==2 || statusSC==-1">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Technician 3 Score</span>
+            <input type="number" ng-model="sc.U_IDU_TechnicianScore3" ng-disabled="jabatan==2 || statusSC==-1">
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Technician</span>
+            <input type="text" ng-model="sc.TechnicianName" disabled>
+        </label>-->
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Handled By</span>
+            <input type="text" ng-model="sc.AssigneeName" disabled>
+        </label>-->
+    </ion-content>  
+</ion-view>

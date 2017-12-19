@@ -1,0 +1,57 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.ECList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Equipment Card-Transaction</ion-nav-title>
+    <ion-content class="frmInput detail has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChangedTrans($index)">
+            <ion-slide ng-repeat="trans in transaction">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Trans No</span>
+                    <input type="text" ng-model="trans.transNo">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Source</span>
+                    <input type="date" ng-model="trans.source">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Document No</span>
+                    <input type="text" ng-model="trans.docNo">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Row No</span>
+                    <input type="text" ng-model="trans.rowNo">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Date</span>
+                    <input type="date" ng-model="trans.date">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Whse</span>
+                    <input type="text" ng-model="trans.whse">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">G/L Acct/BP Code</span>
+                    <input type="text" ng-model="trans.bpCode">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">G/L Acct/BP Name</span>
+                    <input type="text" ng-model="trans.bpName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Direction</span>
+                    <input type="text" ng-model="trans.direction">
+                </label>
+                <br />
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">
+            {{dataTrans.slideIndex+1}}/{{dataTrans.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>

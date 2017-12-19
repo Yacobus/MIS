@@ -1,0 +1,23 @@
+﻿<ion-view>
+    <ion-nav-title>Notification</ion-nav-title>
+    <ion-content class="notif">
+        <ion-list>
+            <ion-item ng-repeat="notif in notification">
+                <div>
+                    <p>{{notif.Title}}</p>
+                    <p> {{notif.Keterangan}}</p>
+                    <label>{{notif.Tanggal}}</label>
+                    <p>{{notif.Tempat}}</p>
+                </div>
+                <div>
+                    <hr />
+                </div>
+                <ion-option-button class="button-assertive" ng-click="deleteNotif(notif.Kode)">Delete
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar class="notif-footer">
+      <a class="button button-clear button-light" ng-click="deleteAll()">Clear All</a>  
+    </ion-footer-bar>
+</ion-view>

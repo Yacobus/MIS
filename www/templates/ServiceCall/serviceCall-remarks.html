@@ -1,0 +1,13 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done" ng-click="updateRemarksSC()" ng-hide="statusSC==-1"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-Remarks</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <br />
+        <textarea rows="25" ng-model="sc.Description"></textarea>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,58 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.salesOrderList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>{{soTitle}}-Content</ion-nav-title>
+    <ion-content class="frmInput detail has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChanged($index)">
+            <ion-slide ng-repeat="item in items">
+                <div>
+                    <label class="item item-input item-stacked-label" ng-hide="item.ItemCode==null">
+                        <span class="input-label">Item No</span>
+                        <input type="text" ng-model="item.ItemCode">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Description</span>
+                        <input type="text" ng-model="item.Description">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Mfr No.</span>
+                        <input type="text" ng-model="item.VendorNum">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Quantity</span>
+                        <input type="text" ng-model="item.Quantity">
+                    </label>
+                    <label class="item item-input item-stacked-label" ng-hide="item.ItemCode==null">
+                        <span class="input-label">WareHouse</span>
+                        <input type="text" ng-model="item.WhsName">
+                    </label>
+                    <label class="item item-input item-stacked-label" ng-hide="isRab">
+                        <span class="input-label">Unit Price</span>
+                        <input type="text" ng-model="item.UnitPrice">
+                    </label>
+                    <label class="item item-input item-stacked-label" ng-hide="isRab">
+                        <span class="input-label">Discount %</span>
+                        <input type="text" ng-model="item.DiscPrcnt">
+                    </label>
+                    <label class="item item-input item-stacked-label" ng-hide="isRab">
+                        <span class="input-label">Tax Code</span>
+                        <input type="text" ng-model="item.TaxCode">
+                    </label>
+                    <label class="item item-input item-stacked-label" ng-hide="isRab">
+                        <span class="input-label">Total(LC)</span>
+                        <input type="text" ng-model="item.Total">
+                    </label>
+                </div><br />
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">
+            {{data.slideIndex+1}}/{{data.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>

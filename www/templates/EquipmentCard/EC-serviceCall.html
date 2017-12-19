@@ -1,0 +1,49 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.ECList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Equipment Card-Service Call</ion-nav-title>
+    <ion-content class="frmInput detail has-tabs-top">
+        <ion-slide-box show-pager="false" does-continue="true" on-slide-changed="slideChangedCall($index)">
+            <ion-slide ng-repeat="sc in serviceCall">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Call ID</span>
+                    <input type="text" ng-model="sc.CallID">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Creation Date</span>
+                    <input type="text" app-datetime ng-model="sc.CreateDate">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Subject</span>
+                    <input type="text" ng-model="sc.Subject">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">item</span>
+                    <input type="text" ng-model="sc.ItemName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">SN</span>
+                    <input type="text" ng-model="sc.ManufSN">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Customer Name</span>
+                    <input type="text" ng-model="sc.CustomerName">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Status</span>
+                    <input type="text" ng-model="sc.StatusName">
+                </label>
+                <br />
+            </ion-slide>
+        </ion-slide-box>
+</ion-content>
+    <div class="customSliderPager2"></div>
+    <div class="customSliderPager">
+        <label class="prevPage"><</label>
+        <span class="customSlider-pager-page">
+            {{dataCall.slideIndex+1}}/{{dataCall.totalSlide}}
+        </span>
+        <label class="nextPage">></label>
+    </div>
+</ion-view>

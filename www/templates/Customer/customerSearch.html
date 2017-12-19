@@ -1,0 +1,30 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Search Customer</ion-nav-title>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Teritory</span><br />
+            <select ng-model="cust.teritory" required>
+                <option ng-repeat="ter in teritory" value="{{ter.TerritoryID}}">{{ter.Description}}</option>
+              
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Group</span><br />
+            <select ng-model="cust.group" required>
+                <option ng-repeat="group in groupCust" value="{{group.Code}}">{{group.Name}}</option>
+
+            </select>
+        </label>
+       
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Branch</span>
+            <input type="text">
+        </label>-->
+        <div class="button-container">
+            <button class="button custom-button" ng-click="load()">Load</button>
+        </div>
+    </ion-content>
+</ion-view>

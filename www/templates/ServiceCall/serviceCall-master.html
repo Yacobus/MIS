@@ -1,0 +1,89 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done" ng-click="updateMasterSC()" ng-hide="statusSC==-1"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-Master</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <span class="span-textarea">Rating Customer</span><br />
+        <rating ng-model="sc.U_IDU_CustumerScoring" max="max_stars" readonly="readonly"></rating>
+                
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Call ID</span>
+            <input type="text" ng-model="sc.CallId" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No.</span>
+            <input type="text" ng-model="sc.DocNum" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Call Status</span><br />
+            <select ng-model="sc.Status">
+                <option ng-repeat='item in callStatus' value='{{item.value}}' ng-selected='{{item.value == sc.Status}}' ng-disabled="jabatan==2 || statusSC==-1">{{item.display}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">SC Awal</span>
+            <input type="text" ng-model="sc.U_IDU_ScAwal" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">No Complain</span>
+            <input type="text" ng-model="sc.U_IDU_NoComplain" disabled>
+        </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Created On</span>
+                <input type="text" app-datetime ng-model="sc.CreateDate" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Closed On</span>
+                <input type="text" app-datetime ng-model="sc.CloseDate" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Contract No</span>
+                <input type="text" ng-model="sc.ContractID" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">End Date</span>
+                <input type="text" app-datetime ng-model="sc.CntrctDate" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Business Partner Code</span>
+                <input type="text" ng-model="sc.CustmrCode" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Business Partner Name</span>
+                <textarea ng-model="sc.CustmrName" disabled> </textarea>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Contact Person</span>
+                <input type="text" ng-model="sc.ContctName" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Telephone No</span>
+                <input type="text" ng-model="sc.Telephone" disabled>
+            </label>
+            <!--<label class="item item-input item-stacked-label">
+                <span class="input-label">Business Partner Ref. No.</span>
+                <input type="text" ng-model="sc.CustomerRefNo" disabled>
+            </label>-->
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Mfr Serial No</span>
+                <input type="text" ng-model="sc.ManufSN" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Serial Number</span>
+                <input type="text" ng-model="sc.InternalSN" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Item</span>
+                <input type="text" ng-model="sc.ItemCode" disabled>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Description</span>
+                 <textarea rows="2" class="textarea-model1" ng-model="sc.ItemName" disabled></textarea>  
+            </label>
+            <br />
+</ion-content>
+</ion-view>

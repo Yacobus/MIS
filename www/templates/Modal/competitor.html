@@ -1,0 +1,38 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title title2">{{title}}</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-android-done"
+                    ng-click="saveComp()"></button>
+        </div>
+        <div class="buttons">
+            <button class="button button-icon ion-close"
+                    ng-click="closeCompModal()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Name</span><br />
+            <select ng-model="comp.CompetId" ng-change="changeComp(comp.CompetId)">
+                <option ng-repeat='cmp in oppComp' value='{{cmp.SequenceNo}}' ng-selected="cmp.SequenceNo==comp.CompetId">{{cmp.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Threat Level</span><br />
+            <select ng-model="comp.ThreatLevl">
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Harga</span>
+            <input type="number" ng-model="comp.U_IDU_Harga">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Remark</span>
+            <input type="text" ng-model="comp.Memo">
+        </label>
+        <ion-checkbox class="input-check" ng-checked="comp.Won=='Y'">Won</ion-checkbox>    
+    </ion-content>
+</ion-modal-view>

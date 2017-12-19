@@ -1,0 +1,28 @@
+﻿<ion-view>
+    <!--<ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.quotationSearch"></button>
+    </ion-nav-buttons>-->
+    <ion-nav-title>Quotation List</ion-nav-title>
+    <ion-content class="frmList">
+        <div class="list list-inset div-search">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+        </div>
+        <ion-list ng-repeat="quo in quotations | orderBy:'DocDate':true | filter:searchFilter">
+            <ion-item ng-click="goDetail(quo.DocEntry)" class="item item-text-wrap">
+                <div>
+                    <h2>{{quo.DocEntry}}</h2>
+                    <h2>{{quo.U_IDU_SQ}}</h2>
+                    <label>{{quo.CardName}}</label>
+                    <p>{{quo.DocDate | date:'dd MMM yyyy'}}</p>
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

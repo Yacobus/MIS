@@ -1,0 +1,105 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-ios-arrow-back" ui-sref="app.salesOrderList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done" ng-click="save()" ng-show="isDraft"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>{{soTitle}}-Detail</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Type Sales</span><br />
+            <select ng-model="so.U_IDU_TypeSales">
+                <option value="P" disabled>Pemerintah</option>
+                <option value="S" disabled>Swasta</option>
+                <option value="E" disabled>E-Katalog</option>
+                <option value="V" disabled>Private</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Jenis Sales</span><br />
+            <select ng-model="so.U_IDU_JenisSls">
+                <option value="C" disabled>Cash Sales</option>
+                <option value="A" disabled>Sales On Account</option>
+                <option value="P" disabled>Spare Part</option>
+                <option value="S" disabled>Services</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Jenis Sales</span><br />
+            <select ng-model="so.U_IDU_1stBU">
+                <option ng-repeat='bu in bUnit' value='{{bu.Code}}' ng-selected='{{bu.Code == so.U_IDU_1stBU}}' disabled>{{bu.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Jenis Sales</span><br />
+            <select ng-model="so.U_IDU_2ndBU">
+                <option ng-repeat='bu in bUnit' value='{{bu.Code}}' ng-selected='{{bu.Code == so.U_IDU_2ndBU}}' disabled>{{bu.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Jenis Sales</span><br />
+            <select ng-model="so.U_IDU_3rdBU">
+                <option ng-repeat='bu in bUnit' value='{{bu.Code}}' ng-selected='{{bu.Code == so.U_IDU_3rdBU}}' disabled>{{bu.Name}}</option>
+            </select>
+        </label>
+       
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">% 1st BU</span>
+            <input type="text" ng-model="so.U_IDU_PrsnBu1" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">% 2nd BU</span>
+            <input type="text" ng-model="so.U_U_IDU_PrsnBu2" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">% 3rd BU</span>
+            <input type="text" ng-model="so.U_U_IDU_PrsnBu3" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Deliverty at Indonesia</span>
+            <input app-datetime type="text" ng-model="so.U_IDU_Delivery" disabled>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Jenis Sales</span><br />
+            <select ng-model="so.U_IDU_Sertificate">
+                <option value="Y" disabled>Yes</option>
+                <option value="N" disabled>No</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Nama Dokter</span>
+            <input type="text" ng-model="so.U_IDU_Dokter">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Jadwal Support</span>
+            <input app-datetime type="text" ng-model="so.U_IDU_JadwalPS">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Trainer</span>
+            <input type="text" ng-model="so.U_IDU_Trainer">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Bank Garansi</span><br />
+            <select ng-model="so.U_IDU_BG">
+                <option value="Y" disabled>Yes</option>
+                <option value="N" disabled>No</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="isDraft">
+            <span class="input-label">Approval</span><br />
+            <select ng-model="so.U_IDU_Approval">
+                <option value="Y" ng-disabled="jabatan==3">Yes</option>
+                <option value="N" ng-disabled="jabatan==3">No</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="isDraft">
+            <span class="input-label">Approval Manager</span><br />
+            <select ng-model="so.U_IDU_ApprovalManager">
+                <option value="Y" ng-disabled="jabatan!=3">Yes</option>
+                <option value="N" ng-disabled="jabatan!=3">No</option>
+            </select>
+        </label>
+        <br />
+    </ion-content>
+</ion-view>

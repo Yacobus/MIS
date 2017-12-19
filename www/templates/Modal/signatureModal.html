@@ -1,0 +1,23 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="headerjudul">
+        <p>Get Signature</p>
+    </ion-header-bar>
+    <ion-content class="customModal" scroll="false">
+        <div class="card list">
+            <div class="item item-body">Please use your finger or stylus to sign below</div>
+            <canvas id="signatureCanvas" class="padding-horizontal item" style="width: 100%;"></canvas>
+        </div>
+        <div class="button-bar padding">
+            <button class="button" ng-click="closeModal()">Cancel</button>
+            <button class="button" ng-click="clearCanvas()">Clear</button>
+            <button class="button button-positive" ng-click="saveCanvas()">Save</button>
+        </div>
+        <!--<canvas id='signatureCanvas' width='300' height='180' style='border: 1px solid black;'></canvas>
+      <div class='button-bar'>
+          <a class='button button-energized' ng-click='clearCanvas()'>Clear</a>
+          <a class='button button-balanced' ng-click='saveCanvas()'>Save</a>
+      </div><br />
+
+      <img ng-src='{{signature}}' />-->
+    </ion-content>
+</ion-modal-view>

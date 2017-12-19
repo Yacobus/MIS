@@ -1,0 +1,29 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Opportunity-Comment</ion-nav-title>
+    <ion-content class="frmList has-tabs-top">
+        <div class="list list-inset div-search">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+        </div>
+        <ion-list ng-repeat="com in comments | filter:searchFilter | orderBy:['U_IDU_DateTime','U_IDU_Objective']:true">
+            <ion-item>
+                <div>
+                    <h2>{{com.U_IDU_Comments}}</h2>
+                    <p>{{com.U_IDU_DateTime | date :  "dd MMM yyyy"}} {{com.U_IDU_Objective}}</p>
+                    <label>{{com.U_IDU_User}}</label>
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <div class="add-button">
+        <img src="img/btn_add.png" ng-click="addComment()" ng-hide="temp.disable"/>
+    </div>
+</ion-view>

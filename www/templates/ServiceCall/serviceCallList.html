@@ -1,0 +1,36 @@
+﻿<ion-view>
+    <!--<ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallSearch"></button>
+    </ion-nav-buttons>-->
+    <ion-nav-title>Service Call List</ion-nav-title>
+    <ion-content class="frmList">
+        <div class="list list-inset div-search">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+        </div>
+        <ion-list ng-repeat="sc in serviceCall | orderBy:'CreateDate':true | filter:searchFilter">
+            <ion-item ng-click="goDetail(sc.CallId)" class="item item-text-wrap">
+                <div class="row row-center">
+                    <div class="col col-80">
+                        <h2>{{sc.CallId}}</h2>
+                        <label>{{sc.CustmrName}}</label>
+                        <p>{{sc.CreateDate | date :  "dd MMM yyyy"}}</p>
+                        <p>{{sc.Subject}}</p>
+                        <h3>{{sc.Tech1}}</h3>
+                        <h3>{{sc.Tech2}}</h3>
+                        <h3>{{sc.Tech3}}</h3>
+                    </div>
+                    <div class="col">
+                        <div class="priority" ng-class="getPriorityColor(sc.Priority,sc.Status,sc.CreationDate)"></div>
+                    </div>                    
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

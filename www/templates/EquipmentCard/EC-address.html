@@ -1,0 +1,51 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.ECList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Equipment Card-Address</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Street</span>
+            <input type="text" ng-model="ec.Address.Street">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Street No</span>
+            <input type="text" ng-model="ec.Address.StreetNo">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Building/Floor/Room</span>
+            <input type="text" ng-model="ec.Address.Building">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Zip Code</span>
+            <input type="text" ng-model="ec.Address.Zip">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Block</span>
+            <input type="text" ng-model="ec.Address.Block">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">City</span>
+            <input type="text" ng-model="ec.Address.City">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">State</span><br />
+            <select ng-model="ec.Address.StateCode">
+                <option ng-repeat='st in ecState' value='{{st.Code}}' ng-selected='{{st.Code == activity.Address.StateCode}}'>{{st.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Country</span><br />
+            <select ng-model="ec.Address.CountryCode">
+                <option ng-repeat='ct in ecCountry' value='{{ct.Code}}' ng-selected='{{ct.Code == activity.Address.CountryCode}}'>{{ct.Name}}</option>
+            </select>
+        </label>
+        <span class="input-label">Location</span>
+        <textarea rows="5" ng-model="ec.Address.InstallLocation"></textarea>
+        <br />
+    </ion-content>
+
+</ion-view>

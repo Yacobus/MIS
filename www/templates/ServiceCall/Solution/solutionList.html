@@ -1,0 +1,30 @@
+﻿<ion-view>
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-ios-arrow-back" ng-click="back()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-arrow-down-c" ng-click="newSolution()" ng-hide="solMode=='view'"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-title>Recomended Solution</ion-nav-title>
+    <ion-content class="frmList">
+        <div class="list list-inset div-search">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+        </div>
+        <ion-list ng-repeat="sol in solutions | orderBy:'SltCode' | filter:searchFilter">
+            <ion-item ng-click="goDetail(sol.SltCode)" class="item item-text-wrap">
+                <div>
+                    <h2>{{sol.SltCode}}</h2>
+                    <p>{{sol.Solution}}</p>
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

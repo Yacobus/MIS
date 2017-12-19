@@ -1,0 +1,30 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">Find Item</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-close"
+                   ng-click="closeItemModal()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader item-input-inset">
+            <label class="item-input-wrapper">
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+            <button class="button button-icon ion-search" ng-click="findItem(searchFilter)">
+            </button>
+    </ion-header-bar>
+    <ion-content class="frmList"> 
+                <ion-list ng-repeat="item in items | orderBy:'ItemName'">
+                    <ion-item ng-click="setItem(item.ItemCode,item.ItemName)" class="item item-text-wrap">
+                        <div>
+                            <h2>{{item.ItemCode}}</h2>
+                            <label>{{item.ItemName}}</label><br />
+                            <label>{{item.SuppCatNum}}</label>
+                        </div>
+                        <div>
+                            <hr />
+                        </div>
+                    </ion-item>
+                </ion-list>       
+    </ion-content>
+</ion-modal-view>

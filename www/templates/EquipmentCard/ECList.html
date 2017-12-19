@@ -1,0 +1,28 @@
+﻿<ion-view>
+    <!--<ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.oppSearch"></button>
+    </ion-nav-buttons>-->
+    <ion-nav-title>Equipment Card List</ion-nav-title>
+    <ion-content class="frmList">
+        <div class="list list-inset div-search">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchFilter">
+            </label>
+        </div>
+        <ion-list ng-repeat="card in equipment | orderBy:'ItemName' | filter:searchFilter">
+            <ion-item ng-click="goDetail(card.InsID)" class="item item-text-wrap">
+                <div>
+                    <h2>{{card.ItemCode}}</h2>
+                    <h2>{{card.InternalSN}}</h2>
+                    <label>{{card.ItemName}}</label>
+                    <p>{{card.CardName}}</p>
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

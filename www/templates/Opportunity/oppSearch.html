@@ -1,0 +1,33 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-arrow-down-c" ng-click="newOpp()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Search Opportunity</ion-nav-title>
+    <ion-content class="frmInput">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <input type="radio" name="statusOpp" id="r1Opp" value="O" ng-model="opp.status"><label for="r1Opp">Open</label>
+            <input type="radio" name="statusOpp" id="r2Opp" value="W" ng-model="opp.status"><label for="r2Opp">Win</label>
+            <input type="radio" name="statusOpp" id="r3Opp" value="L" ng-model="opp.status"><label for="r3Opp">Lost</label>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="opp.status=='W' || opp.status=='L'">
+            <span class="input-label">From</span><br />
+            <input type="date" ng-model="start" id="startOpp" class="hidden" ng-change="getStart(start)" />
+            <input type="text" ng-model="startDate" class="textDate" readonly>
+            <i for="startOpp" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label" ng-show="opp.status=='W' || opp.status=='L'">
+            <span class="input-label">To</span><br />
+            <input id="endOpp" type="date" ng-model="end" class="hidden" ng-change="getEnd(end)" />
+            <input type="text" ng-model="endDate" class="textDate" readonly>
+            <i for="endOpp" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <div class="button-container">
+            <button class="button custom-button" ng-click="load()">Load</button>
+        </div>
+
+    </ion-content>
+</ion-view>

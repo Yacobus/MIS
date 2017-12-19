@@ -1,0 +1,69 @@
+﻿<ion-view view-title="Service Call-Scheduling">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done" ng-click="updateScheduleSC()" ng-hide="statusSC==-1"></button>
+    </ion-nav-buttons>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Start Date</span><br />
+            <input type="date" ng-model="startDateSchedule" id="ujiSesuai" class="hidden" ng-change="getStartDateSchedule(startDateSchedule)" />
+            <input type="text" ng-model="startDateScheduleF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Start Time</span><br />
+            <input type="time" ng-model="startTimeSchedule" id="ujiSesuai" class="hidden" ng-change="getStartTimeSchedule(startTimeSchedule)" />
+            <input type="text" ng-model="schedule.StartTime" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-clock buttonDate"></i>
+        </label>
+       
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">End Date</span><br />
+            <input type="date" ng-model="endDateSchedule" id="ujiSesuai" class="hidden" ng-change="getEndDateSchedule(endDateSchedule)" />
+            <input type="text" ng-model="endDateScheduleF" class="textDate" readonly>
+            <i for="ujiSesuai" class="icon ion-calendar buttonDate"></i>
+        </label>
+        <label class="item item-input item-stacked-label">
+        <span class="input-label">End Time</span><br />
+        <input type="time" ng-model="endTimeSchedule" id="ujiSesuai" class="hidden" ng-change="getEndTimeSchedule(endTimeSchedule)" />
+        <input type="text" ng-model="schedule.EndTime" class="textDate" readonly>
+        <i for="ujiSesuai" class="icon ion-clock buttonDate"></i>
+    </label>
+         
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Duration</span>
+            <input type="text" ng-model="Duration">
+        </label>
+        <!--<label class="item item-input item-stacked-label">
+            <span class="input-label">Reminder</span>
+            <input type="text" ng-model="schedule.Reminder">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Meeting Location</span>
+            <input type="text" ng-model="schedule.Location">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Street</span>
+            <input type="text" ng-model="schedule.Street">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">City</span>
+            <input type="text" ng-model="schedule.City">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Room</span>
+            <input type="text" ng-model="schedule.Room">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">State</span>
+            <input type="text" ng-model="schedule.State">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Country</span>
+            <input type="text" ng-model="schedule.Country">
+        </label>-->
+        <br />
+    </ion-content>
+</ion-view>

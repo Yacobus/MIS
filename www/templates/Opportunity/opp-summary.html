@@ -1,0 +1,45 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-done-all" ng-click="save()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Opportunity-Summary</ion-nav-title>
+    <ion-content class="frmInput has-tabs-top">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Status</span><br />
+            <input type="radio" name="statusOp" id="r1Op" value="O" ng-model="temp.stat" ng-disabled="temp.disable"><label for="r1Op">Open</label>
+            <input type="radio" name="statusOp" id="r2Op" value="W" ng-model="temp.stat" ng-disabled="temp.disable"><label for="r2Op">Win</label>
+            <input type="radio" name="statusOp" id="r3Op" value="L" ng-model="temp.stat" ng-disabled="temp.disable"><label for="r3Op">Lost</label>
+        </label>
+        <br />
+        <ion-list ng-hide="temp.stat=='O'">
+            <ion-item class="item-master">
+                Reasons
+                &nbsp;&nbsp;&nbsp;
+                
+                &nbsp;&nbsp;&nbsp;
+                <i class="icon ion-plus" ng-click="addReason()" ng-hide="temp.disable">&nbsp;&nbsp;Add Reason</i>
+            </ion-item>
+
+            <ion-item class="item-detail" ng-repeat="reason in opp.Reasons">
+                <div>
+                    <label>{{$index+1}}.</label>
+                    <label> {{reason.ReasonName}}</label>
+                </div>
+                <div>
+                    <hr />
+                </div>
+                <!--<ion-option-button class="button-balanced opt-button" ng-click="">
+                    <i class="icon ion-edit opt-i"></i>
+                    <span>Edit</span>
+                </ion-option-button>-->
+                <!-- <ion-option-button class="button-assertive opt-button" ng-click="removeReason($index)">
+                    <i class="icon ion-trash-b opt-i"></i>
+                    <span>Delete</span>
+                </ion-option-button> -->
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

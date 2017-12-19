@@ -1,0 +1,75 @@
+﻿<ion-side-menus>
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left" class="sidemenu">
+        <ion-content>
+            <div class="sideprofile" menu-close ui-sref="app.profile">
+                <div class="fotoprofile">
+                    <img check-image ng-src="{{imgProfile}}"/>
+                </div>
+                <div class="infoprofile">
+                    <p class="namaprofile">{{firstName}} {{lastName}}</p>
+                </div>
+            </div>
+            <hr />
+            <ion-list>
+                <ion-item class="item-icon-left" menu-close href="#/app/notification">
+                    <i class="icon ion-android-notifications"></i>Notification
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/schedule">
+                    <i class="icon ion-beer"></i>Schedule
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/customerSearch">
+                    <i class="icon ion-person-stalker"></i>Customer
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/ECSearch" ng-if="isTC">
+                    <i class="icon ion-wrench"></i>Equipment Card
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/oppSearch" ng-if="isSales">
+                    <i class="icon ion-flash"></i>Opportunity
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/quotationSearch" ng-if="isSales">
+                    <i class="icon ion-clipboard"></i>Quotation
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close ng-click="goToSO('draft')" ng-if="isSales">
+                    <i class="icon ion-social-codepen-outline"></i>Sales Order Draft
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close ng-click="goToSO('so')" ng-if="isSales">
+                    <i class="icon ion-document"></i>Sales Order
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close ng-click="goToSO('rab')" ng-if="isSales">
+                    <i class="icon ion-social-codepen"></i>RAB
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/activitySearch">
+                    <i class="icon ion-eye"></i>Activity
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/complainSearch">
+                    <i class="icon ion-information"></i>Complain
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/serviceCallSearch" ng-if="isTC">
+                    <i class="icon ion-document-text"></i>Service Call
+                </ion-item>
+                <!--<ion-item class="item-icon-left" menu-close href="#/app/requestPSSearch" ng-if="isPS">
+                    <i class="icon ion-social-nodejs"></i>Request PS
+                </ion-item>-->
+                <!--<ion-item class="item-icon-left" menu-close href="#/app/purchaseRequestSearch">
+                    <i class="icon ion-social-html5-outline"></i>Purchase Request
+                </ion-item>-->
+                <ion-item class="item-icon-left" menu-close ng-show="isLogin" ng-click="logout()">
+                    <i class="icon ion-log-out"></i>Logout
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

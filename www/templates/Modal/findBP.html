@@ -1,0 +1,28 @@
+﻿<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">Find Bussiness Partner</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-close"
+                    ng-click="closeBPModal()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="Search" ng-model="searchFilter">
+        </label>
+        <button class="button button-icon ion-search" ng-click="findBP(searchFilter)"></button>
+    </ion-header-bar>
+    <ion-content class="frmList">
+                <ion-list ng-repeat="bp in bps | orderBy:'CardName'">
+                    <ion-item ng-click="setBP(bp.CardCode,bp.CardName)" class="item item-text-wrap">
+                        <div>
+                            <h2>{{bp.CardCode}}</h2>
+                            <label>{{bp.CardName}}</label>
+                        </div>
+                        <div>
+                            <hr />
+                        </div>
+                    </ion-item>
+                </ion-list>
+    </ion-content>
+</ion-modal-view>

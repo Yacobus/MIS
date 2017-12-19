@@ -1,0 +1,23 @@
+﻿<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-ios-arrow-back" ui-sref="app.serviceCallList"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>Service Call-Attachment</ion-nav-title>
+    <ion-content class="frmList has-tabs-top">
+        <ion-list ng-repeat="att in attachments">
+            <ion-item ng-click="viewImage(att.FileName)" class="item item-text-wrap">
+                <div>
+                    <label>{{att.FileName}}</label>
+                    <p>{{att.AttachmentDate | date :  "dd MMM yyyy"}}</p>
+
+                </div>
+                <div>
+                    <hr />
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <div class="add-button" ng-hide="statusSC==-1">
+        <img src="img/btn_add.png" ng-click="loadImage()" />
+    </div>
+</ion-view>
